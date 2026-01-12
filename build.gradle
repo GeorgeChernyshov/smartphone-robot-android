@@ -109,10 +109,10 @@ subprojects {
             targetCompatibility(JavaVersion.VERSION_1_8)
         }
         defaultConfig {
-            compileSdkVersion = 33
-            buildToolsVersion = '33.0.2'
+            compileSdkVersion = 36
+            buildToolsVersion = '35.0.0'
             minSdkVersion 30
-            targetSdkVersion 30
+            targetSdkVersion 36
 
             buildConfigField("String", "IP", "\"${ip.toString()}\"")
             buildConfigField("int", "PORT", "${port.toString()}")

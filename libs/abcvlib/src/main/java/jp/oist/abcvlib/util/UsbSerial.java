@@ -113,7 +113,13 @@ public class UsbSerial implements SerialInputOutputManager.Listener{
             openPort(connection);
         }else{
             Logger.i(Thread.currentThread().getName(), "Requesting permission to connect to device");
-            PendingIntent permissionIntent = PendingIntent.getBroadcast(context, 0, new Intent(ACTION_USB_PERMISSION), 0);
+            PendingIntent permissionIntent = PendingIntent.getBroadcast(
+                    context,
+                    0,
+                    new Intent(ACTION_USB_PERMISSION),
+                    PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
+            );
+
             usbManager.requestPermission(device, permissionIntent);
         }
     }
